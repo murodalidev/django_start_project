@@ -8,7 +8,7 @@ Har safar yangi project boshlaganda dastlabki nasytroykalar uchun siz 1-2 soat v
 
 `git clone https://github.com/murodalidev/django_start_project.git`
 
-**2. Python ishlash muhinini yaratib oling komandasi orqali.**
+**2. Python ishlash muhitini yaratib oling.**
 
 Linux/MacOS:
 
