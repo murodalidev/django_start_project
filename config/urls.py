@@ -46,7 +46,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # local apps
-    path('main/', include('apps.main.urls', namespace='main'))
+    path('main/', include('apps.main.urls', namespace='main')),
+    path('accounts/', include('apps.accounts.urls', namespace='accounts'))
 ]
 
 if settings.DEBUG:
