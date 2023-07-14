@@ -1,4 +1,5 @@
 from django.urls import path, include
+from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
 
 app_name = 'accounts'
 
@@ -14,18 +15,20 @@ urlpatterns = [
 # accounts/logout/ [name='logout']  # logout
 
 
+# PasswordChangeView()
 # accounts/password_change/ [name='password_change']    # change
+# PasswordChangeDoneView()
 # accounts/password_change/done/ [name='password_change_done']  # change done
 
 
-# submit email form -> PasswordResetView()
+# PasswordResetView()
 # accounts/password_reset/ [name='password_reset']
 
-# email sent success message -> PasswordResetDoneView()
+# PasswordResetDoneView()
 # accounts/password_reset/done/ [name='password_reset_done']
 
-# link to password rest form in email - > PasswordResetConfirmView()
+# PasswordResetConfirmView()
 # accounts/reset/<uidb64>/<token>/ [name='password_reset_confirm']
 
-# password successfully changed message -> PasswordResetCompleteView()
+# PasswordResetCompleteView()
 # accounts/reset/done/ [name='password_reset_complete']
