@@ -7,7 +7,7 @@ from .utils import avatar_path
 class AccountManager(BaseUserManager):
     def create_user(self, phone, password=None, **kwargs):
         if phone is None:
-            raise TypeError({"success": False, "detail": _("User should have a phone")})
+            raise TypeError({"success": False, "detail": "User should have a phone"})
         user = self.model(phone=phone, **kwargs)
         user.set_password(password)
         user.save(using=self._db)
@@ -18,7 +18,6 @@ class AccountManager(BaseUserManager):
         user.is_superuser = True
         user.is_staff = True
         user.is_active = True
-        user.role = 0
         user.save(using=self._db)
         return user
 
@@ -28,12 +27,6 @@ class Account(AbstractBaseUser, PermissionsMixin):
         verbose_name = 'Account'
         verbose_name_plural = 'Accounts'
 
-    ROLE = (
-        (0, 'Staff'),
-        (1, 'Candidate'),
-        (2, 'Recruiter'),
-    )
-
     email = models.EmailField(max_length=12, unique=True, db_index=True)
     first_name = models.CharField(max_length=50, null=True)
     last_name = models.CharField(max_length=50, null=True)
@@ -42,7 +35,6 @@ class Account(AbstractBaseUser, PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
-    role = models.IntegerField(choices=ROLE, null=True)
     modified_date = models.DateTimeField(auto_now=True)
     created_date = models.DateTimeField(auto_now_add=True)
 

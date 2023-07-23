@@ -1,5 +1,8 @@
 from django.urls import path, include
-from django.contrib.auth.views import PasswordChangeView, PasswordChangeDoneView
+from django.contrib.auth.views import (
+    PasswordChangeView,
+    PasswordChangeDoneView
+)
 
 app_name = 'accounts'
 
